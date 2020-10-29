@@ -1,0 +1,143 @@
+﻿<UserControl
+    x:Name="root"
+    x:Class="Enter.Controls.PickShopControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Enter"
+    xmlns:map="using:Bing.Maps"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400" Loaded="OnLoaded" Unloaded="OnUnloaded">
+    
+    <UserControl.Resources>
+        <CollectionViewSource x:Name="sourceShopView" Source="{Binding ElementName=root, Path=Tag.Shop}"/>
+        
+        <Style x:Name="PushPinStyle" TargetType="ContentControl">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ContentControl">
+                        <Grid Width="50" Height="50">
+                            <Ellipse Fill="#FFFF7F00" Margin="1" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="White" StrokeThickness="4" Width="45" Height="45"/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="4" FontSize="14" FontWeight="Bold"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <DataTemplate x:Name="ContentPopupDataTemplate">
+            <Grid Background="Transparent">
+                <Path Fill="Black" Margin="25,25,0,0">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathFigure>
+                                <PolyLineSegment Points="0,0,50,30,50,60,0,0"/>
+                            </PathFigure>
+                            <PathFigure>
+                                <LineSegment Point="50,30"/>
+                                <LineSegment Point="50,0"/>
+                                <LineSegment Point="350,0"/>
+                                <LineSegment Point="350,130"/>
+                                <LineSegment Point="50,130"/>
+                                <LineSegment Point="50,30"/>
+                            </PathFigure>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+                <Grid Margin="83,30,0,0" Width="280" Height="130">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="{Binding Name}" FontSize="18" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="0,0,8,0" Foreground="Orange"/>
+                    <TextBlock Grid.Row="1" Text="{Binding Address}" FontSize="16.555" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="0,2,8,0"/>
+                    <TextBlock Grid.Row="2" Text="{Binding WorkingTime}" FontSize="18" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Margin="0,2,0,0" Foreground="Gray"/>
+                    <StackPanel Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0,0,0,10">
+                        <Button Content="Выбрать" Style="{StaticResource TextButtonStyle}" FontSize="26.555" FontWeight="Light" Foreground="Orange" Click="OnSelectedPush" Tag="{Binding}"/>
+                    </StackPanel>
+                    
+                    <ToolTipService.ToolTip>
+                        <ToolTip>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Text="{Binding Name}" FontSize="16" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="1" Text="{Binding Address}" FontSize="14" TextWrapping="Wrap" Margin="0,2,0,0"/>
+                                <TextBlock Grid.Row="2" Text="{Binding WorkingTime}" FontSize="14" TextWrapping="Wrap" Margin="0,2,0,0"/>
+                            </Grid>
+                        </ToolTip>
+                    </ToolTipService.ToolTip>
+                </Grid>
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+    
+    <Border Background="Black">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Vertical" RequestedTheme="Light" Margin="10">
+                <TextBlock Text="Выберите магазин в котором хотите забрать заказ..." FontSize="26" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Foreground="#FFB8B6B6"/>
+            </StackPanel>
+            
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="350"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <ListView Grid.Column="0" ItemsSource="{Binding Source={StaticResource sourceShopView}}" SelectionMode="None" 
+                      IsItemClickEnabled="True" RequestedTheme="Light" ItemClick="OnItemClickShop">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Width="340">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Row="0" FontSize="20" FontWeight="Normal" TextTrimming="WordEllipsis" TextWrapping="NoWrap" Text="{Binding Name}" Foreground="Orange" Margin="5,5,10,0"/>
+                                <TextBlock Grid.Row="1" FontSize="16.555" FontWeight="Light" Text="{Binding Address}" Foreground="White" Margin="5,2,10,0" TextWrapping="NoWrap" TextTrimming="WordEllipsis"/>
+                                <TextBlock Grid.Row="2" FontSize="16.555" Text="{Binding WorkingTime}" Foreground="Gray" Margin="5,2,10,0" TextWrapping="NoWrap" TextTrimming="WordEllipsis"/>
+
+                                <ToolTipService.ToolTip>
+                                    <ToolTip>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Grid.Row="0" Text="{Binding Name}" FontSize="16" TextWrapping="Wrap"/>
+                                            <TextBlock Grid.Row="1" Text="{Binding Address}" FontSize="14" TextWrapping="Wrap" Margin="0,2,0,0"/>
+                                            <TextBlock Grid.Row="2" Text="{Binding WorkingTime}" FontSize="14" TextWrapping="Wrap" Margin="0,2,0,0"/>
+                                        </Grid>
+                                    </ToolTip>
+                                </ToolTipService.ToolTip>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                </ListView>
+
+                <map:Map Grid.Column="1" Credentials="Aitt9DJZUaahkf64OpVPSSZAJS0bW3ZNgC6slOOlUNXPplwY5nnK3KRf9kQujTac" x:Name="map" ZoomLevel="8" Tapped="OnMapTapped">
+                    <map:MapLayer x:Name="mapLayer"/>
+                </map:Map>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

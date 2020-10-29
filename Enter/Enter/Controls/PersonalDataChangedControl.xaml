@@ -1,0 +1,117 @@
+﻿<UserControl
+    x:Name="root"
+    x:Class="Enter.Controls.PersonalDataChangedControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Enter"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+
+    <Border Background="Black">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+
+            <ScrollViewer Grid.Row="0" Style="{StaticResource ScrollViewerVerticalStyle}">
+                <Grid Margin="40, 30, 35, 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="Имя" FontSize="20.555" FontWeight="Light" Foreground="White"/>
+                    <TextBox Grid.Row="1" x:Name="textFirstName"/>
+
+                    <TextBlock Grid.Row="2" Text="Фамилия" FontSize="20.555" FontWeight="Light" Foreground="White" Margin="0, 15, 0, 0"/>
+                    <TextBox Grid.Row="3" x:Name="textLastName"/>
+
+                    <TextBlock Grid.Row="4" Text="Отчество" FontSize="20.555" FontWeight="Light" Foreground="White" Margin="0, 15, 0, 0"/>
+                    <TextBox Grid.Row="5" x:Name="textMiddleName"/>
+
+                    <TextBlock Grid.Row="6" Text="Дата рождения" FontSize="20.555" FontWeight="Light" Foreground="White" Margin="0, 15, 0, 0"/>
+                    <DatePicker Grid.Row="7" x:Name="date"/>
+
+                    <TextBlock Grid.Row="8" Text="Пол" FontSize="20.555" FontWeight="Light" Foreground="White" Margin="0, 15, 0, 0"/>
+                    <ComboBox Grid.Row="9" x:Name="comboSex">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border>
+                                    <TextBlock Text="{Binding Converter={StaticResource SexConverter}}"/>
+                                </Border>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <TextBlock Grid.Row="10" Text="Email" FontSize="20.555" FontWeight="Light" Foreground="White" Margin="0, 15, 0, 0"/>
+                    <TextBox Grid.Row="11" x:Name="textEmail"/>
+
+                    <TextBlock Grid.Row="12" Text="Домашний телефон" FontSize="20.555" FontWeight="Light" Foreground="White" Margin="0, 15, 0, 0"/>
+                    <TextBox Grid.Row="13" x:Name="textPhone"/>
+
+                    <TextBlock Grid.Row="14" Text="Мобильный телефон" FontSize="20.555" FontWeight="Light" Foreground="White" Margin="0, 15, 0, 0"/>
+                    <TextBox Grid.Row="15" x:Name="textMobilePhone"/>
+
+                    <TextBlock Grid.Row="16" Text="Skype" FontSize="20.555" FontWeight="Light" Foreground="White" Margin="0, 15, 0, 0"/>
+                    <TextBox Grid.Row="17" x:Name="textSkype"/>
+
+                    <TextBlock Grid.Row="18" Text="Род деятельности" FontSize="20.555" FontWeight="Light" Foreground="White" Margin="0, 15, 0, 0"/>
+                    <TextBox Grid.Row="19" x:Name="textOccupation"/>
+                </Grid>
+            </ScrollViewer>
+
+            <TextBlock Grid.Row="1" x:Name="CompletedSuccess" FontSize="24" Foreground="Orange" FontWeight="Light" 
+                       VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" 
+                       TextTrimming="WordEllipsis" Visibility="Collapsed" Text="Данные сохранены"/>
+
+            <TextBlock Grid.Row="1" x:Name="CompletedError" FontSize="24" Foreground="Orange" FontWeight="Light" 
+                       VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap" 
+                       TextTrimming="WordEllipsis" Visibility="Collapsed" Text="Ошибка сохранения данных"/>
+
+            <Button Grid.Row="1" Content="Сохранить изменения" Style="{StaticResource TextButtonStyle}" 
+                    FontSize="34" FontWeight="Light" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0, 0, 35, 0"
+                    Click="OnSaveClick"/>
+        </Grid>
+        
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="CompletedStates">
+                <VisualState x:Name="SaveSuccess">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CompletedSuccess" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+
+                <VisualState x:Name="SaveError">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CompletedError" Storyboard.TargetProperty="Visibility">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Border>
+</UserControl>

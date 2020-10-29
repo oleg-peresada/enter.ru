@@ -1,0 +1,15 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="CheckAnyCPU" Condition="('$(PlatformTarget)' != 'x86') AND ('$(PlatformTarget)' != 'ARM') AND ('$(PlatformTarget)' != 'x64')" BeforeTargets="BeforeBuild">
+    <Error Text="Application Insights Telemetry SDK for Windows Store does not support the $(Platform) target platform. Please consult http://go.microsoft.com/fwlink/?LinkID=293805." />
+  </Target>  
+  <ItemGroup Condition="'$(ProjectExt)' != '.vcxproj'">
+    <SDKReference Include="Microsoft.VCLibs, Version=12.0">
+      <Name>Microsoft Visual C++ 2013 Runtime Package for Windows</Name>
+    </SDKReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ApplicationInsights.Telemetry.WindowsStore">
+      <HintPath>$(MSBuildThisFileDirectory)\$(PlatformTarget)\Microsoft.ApplicationInsights.Telemetry.WindowsStore.winmd</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

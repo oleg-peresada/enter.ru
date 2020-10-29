@@ -1,0 +1,148 @@
+﻿<Page
+    x:Name="root"
+    x:Class="Enter.View.CategoryTreeView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:control="using:Enter.Controls"
+    xmlns:template="using:Enter.Template"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <CollectionViewSource x:Name="ViewSourceGroupCategory" Source="{Binding CategoryTreeCollection}" 
+                              IsSourceGrouped="True" ItemsPath="Tree"/>
+        <CollectionViewSource x:Name="GroupOutViewSourceCategory" Source="{Binding ElementName=ViewSourceGroupCategory, Path=View.CollectionGroups}"/>
+        
+        <DataTemplate x:Key="VariableTreeDataTemplate">
+            <Grid Width="480" Height="480">
+                <Border Background="{StaticResource CommonBackgroundImage}">
+                    <Image Source="{Binding Content.MediaImage, Converter={StaticResource MediaImageConverter}, ConverterParameter=500}"/>
+                </Border>
+                <Border VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="95" Background="#BF0E0D0D">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="{Binding Content.Name}" FontSize="22" FontWeight="Light" Margin="10, 10, 10, 5"/>
+                        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10, 0, 0, 0">
+                            <TextBlock Text="{Binding Content.ProductCountGlobal}" FontSize="18" FontWeight="Light" Margin="0, 0, 10, 0"/>
+                            <TextBlock Text="Товаров" FontSize="18" FontWeight="Light"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </Grid>
+        </DataTemplate>
+        
+        <DataTemplate x:Key="VariableMoreDataTemplate">
+            <Border Background="#FFB27D1D" Width="240" Height="160">
+                <Grid>
+                    <TextBlock Text="{Binding Name}" Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="Wrap" Margin="15, 10" FontWeight="Light"/>
+                </Grid>
+            </Border>
+        </DataTemplate>
+        
+        <template:CategoryTemplateSelector x:Key="CategoryVariableTemplateSelector" 
+                                           TemplateMore="{StaticResource VariableMoreDataTemplate}" 
+                                           TemplateTree="{StaticResource VariableTreeDataTemplate}"/>
+    </Page.Resources>
+    
+    <Grid Style="{StaticResource StandartPanelStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="420"/>
+            </Grid.ColumnDefinitions>
+            <AppBarButton Grid.Column="0" x:Name="backButton" Icon="Back" Height="95" Margin="10,46,10,0" 
+                          Command="{Binding DataContext.GoBackCommand, ElementName=root}"/>
+            <TextBlock Grid.Column="1" Text="{Binding HeaderTree}" Style="{StaticResource HeaderTextBlockStyle}" Margin="10, 56, 0, 0" 
+                       VerticalAlignment="Stretch" HorizontalAlignment="Left" TextWrapping="NoWrap" TextTrimming="WordEllipsis"/>
+            
+            <SearchBox Grid.Column="2" Width="300" Height="35" VerticalAlignment="Stretch" HorizontalAlignment="Right" Margin="0, 15, 100, 0" PlaceholderText="Поиск товаров" 
+                       QuerySubmitted="OnQuerySubmitted" 
+                       ResultSuggestionChosen="OnResultSuggestionChosen" 
+                       SuggestionsRequested="OnSuggestionsRequested"/>
+        </Grid>
+
+        <ProgressRing Grid.RowSpan="2" Width="110" Height="110" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                      IsActive="{Binding ElementName=root, Path=DataContext.IsActive}"/>
+
+        <Grid Grid.Row="1" Visibility="{Binding ElementName=root, Path=DataContext.RootVisibility}">
+            <SemanticZoom IsZoomOutButtonEnabled="True">
+                <SemanticZoom.ZoomedInView>
+                    <template:VariableGridView ItemsSource="{Binding Source={StaticResource ViewSourceGroupCategory}}" SelectionMode="None"
+                                               IsItemClickEnabled="True" IsSwipeEnabled="False"
+                                               ItemTemplateSelector="{StaticResource CategoryVariableTemplateSelector}"
+                                               ItemClick="OnVariableCategoryClick"
+                                               HorizontalOffset="{Binding HorizontalOffset, Mode=TwoWay}">
+                        <template:VariableGridView.ItemContainerTransitions>
+                            <TransitionCollection>
+                                <AddDeleteThemeTransition/>
+                            </TransitionCollection>
+                        </template:VariableGridView.ItemContainerTransitions>
+                        <template:VariableGridView.GroupStyle>
+                            <GroupStyle>
+                                <GroupStyle.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Title}" Style="{StaticResource SubheaderTextBlockStyle}" FontWeight="Light" Margin="0, 0, 0, 15"/>
+                                    </DataTemplate>
+                                </GroupStyle.HeaderTemplate>
+                                <GroupStyle.Panel>
+                                    <ItemsPanelTemplate>
+                                        <VariableSizedWrapGrid ItemHeight="160" ItemWidth="240" MaximumRowsOrColumns="3" 
+                                                               Orientation="Vertical" Margin="0, 0, 85, 0"/>
+                                    </ItemsPanelTemplate>
+                                </GroupStyle.Panel>
+                            </GroupStyle>
+                        </template:VariableGridView.GroupStyle>
+                        <template:VariableGridView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <VariableSizedWrapGrid Orientation="Horizontal" Margin="100, 0, 100, 0"/>
+                            </ItemsPanelTemplate>
+                        </template:VariableGridView.ItemsPanel>
+                    </template:VariableGridView>
+                </SemanticZoom.ZoomedInView>
+                <SemanticZoom.ZoomedOutView>
+                    <GridView ItemsSource="{Binding Source={StaticResource GroupOutViewSourceCategory}}" 
+                              SelectionMode="None" IsItemClickEnabled="True">
+                        <GridView.ItemTemplate>
+                            <DataTemplate>
+                                <Border Width="280" Height="160" Background="#FFB27D1D">
+                                    <TextBlock Text="{Binding Group.Title}" Style="{StaticResource SubheaderTextBlockStyle}" 
+                                               VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="15, 10"/>
+                                </Border>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                        <GridView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <VariableSizedWrapGrid Margin="60, 40, 30, 30" MaximumRowsOrColumns="4"/>
+                            </ItemsPanelTemplate>
+                        </GridView.ItemsPanel>
+                    </GridView>
+                </SemanticZoom.ZoomedOutView>
+            </SemanticZoom>
+        </Grid>
+    </Grid>
+    
+    <Page.TopAppBar>
+        <AppBar>
+            <control:AppBarMenuControl/>
+        </AppBar>
+    </Page.TopAppBar>
+    
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Label="Обновить" Icon="Refresh" Command="{Binding RefreshCommand}"/>
+            </CommandBar.SecondaryCommands>
+            <AppBarButton Label="Магазины" Icon="Shop" Command="{Binding ShopCommand}"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>

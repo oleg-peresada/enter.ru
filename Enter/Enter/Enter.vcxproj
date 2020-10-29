@@ -1,0 +1,534 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0015123c-dbcc-45ad-aef8-47906086b9f9}</ProjectGuid>
+    <RootNamespace>Enter</RootNamespace>
+    <DefaultLanguage>ru-RU</DefaultLanguage>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <AppContainerApplication>true</AppContainerApplication>
+    <ApplicationType>Windows Store</ApplicationType>
+    <ApplicationTypeRevision>8.1</ApplicationTypeRevision>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <PackageCertificateKeyFile>Enter_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <ClCompile>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453</DisableSpecificWarnings>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <ClCompile>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453</DisableSpecificWarnings>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453</DisableSpecificWarnings>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453</DisableSpecificWarnings>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453</DisableSpecificWarnings>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453</DisableSpecificWarnings>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Controls\AppBarMenuControl.xaml.h">
+      <DependentUpon>Controls\AppBarMenuControl.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Controls\ChangedPasswordControl.xaml.h">
+      <DependentUpon>Controls\ChangedPasswordControl.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Controls\CitiesMenuControl.xaml.h">
+      <DependentUpon>Controls\CitiesMenuControl.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Controls\ImageShopControl.xaml.h">
+      <DependentUpon>Controls\ImageShopControl.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Controls\OrderCompletedControl.xaml.h">
+      <DependentUpon>Controls\OrderCompletedControl.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Controls\PersonalDataChangedControl.xaml.h">
+      <DependentUpon>Controls\PersonalDataChangedControl.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Controls\PickShopControl.xaml.h">
+      <DependentUpon>Controls\PickShopControl.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Controls\ShopMenuControl.xaml.h">
+      <DependentUpon>Controls\ShopMenuControl.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Controls\UI\SliderRange.h" />
+    <ClInclude Include="Converters\BuyableConverter.h" />
+    <ClInclude Include="Converters\MediaImageConverter.h" />
+    <ClInclude Include="Converters\PriceConverter.h" />
+    <ClInclude Include="Converters\ProductValueConverter.h" />
+    <ClInclude Include="Converters\TextSourceConvert.h" />
+    <ClInclude Include="Converters\TrackerStatusConverter.h" />
+    <ClInclude Include="Converters\VisibilityNullValueConverter.h" />
+    <ClInclude Include="DataModel\BasketProductSerialize.h" />
+    <ClInclude Include="DataModel\GroupCategorySource.h" />
+    <ClInclude Include="DataModel\HubDataModel.h" />
+    <ClInclude Include="DataModel\IncrementFilterLoading.h" />
+    <ClInclude Include="DataModel\IncrementLoadingBase.h" />
+    <ClInclude Include="DataModel\Storage\AutorizationStorage.h" />
+    <ClInclude Include="Helpers.h" />
+    <ClInclude Include="LoadStateEventArgs.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="App.xaml.h">
+      <DependentUpon>App.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="MainPage.xaml.h">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="RelayCommand.h" />
+    <ClInclude Include="SuspensionManager.h" />
+    <ClInclude Include="Template\CategoryTemplateSelector.h" />
+    <ClInclude Include="Template\ToastNotificationCore.h" />
+    <ClInclude Include="Template\VariableGridView.h" />
+    <ClInclude Include="ViewModelsBase.h" />
+    <ClInclude Include="ViewModels\AboutShopViewModels.h" />
+    <ClInclude Include="ViewModels\AccessoriesViewModels.h" />
+    <ClInclude Include="ViewModels\AccountViewModels.h" />
+    <ClInclude Include="ViewModels\BasketViewModels.h" />
+    <ClInclude Include="ViewModels\CategoryTreeViewModels.h" />
+    <ClInclude Include="ViewModels\MainViewModels.h" />
+    <ClInclude Include="ViewModels\TrackerExtensionsViewModels.h" />
+    <ClInclude Include="ViewModels\TrackerViewModels.h" />
+    <ClInclude Include="ViewModels\OrderViewModels.h" />
+    <ClInclude Include="ViewModels\ProductExtensionsPhotoViewModels.h" />
+    <ClInclude Include="ViewModels\ProductExtensionsViewModels.h" />
+    <ClInclude Include="ViewModels\ProductViewModels.h" />
+    <ClInclude Include="ViewModels\SearchViewModels.h" />
+    <ClInclude Include="ViewModels\SplashFilterViewModels.h" />
+    <ClInclude Include="View\AboutShopView.xaml.h">
+      <DependentUpon>View\AboutShopView.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="View\AccessoriesView.xaml.h">
+      <DependentUpon>View\AccessoriesView.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="View\AccountView.xaml.h">
+      <DependentUpon>View\AccountView.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="View\BasketView.xaml.h">
+      <DependentUpon>View\BasketView.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="View\CategoryTreeView.xaml.h">
+      <DependentUpon>View\CategoryTreeView.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="View\TrackerExtensionsView.xaml.h">
+      <DependentUpon>View\TrackerExtensionsView.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="View\TrackerView.xaml.h">
+      <DependentUpon>View\TrackerView.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="View\OrderView.xaml.h">
+      <DependentUpon>View\OrderView.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="View\ProductExtensionsPhotoView.xaml.h">
+      <DependentUpon>View\ProductExtensionsPhotoView.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="View\ProductExtensionsView.xaml.h">
+      <DependentUpon>View\ProductExtensionsView.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="View\ProductView.xaml.h">
+      <DependentUpon>View\ProductView.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="View\SearchView.xaml.h">
+      <DependentUpon>View\SearchView.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="View\Settings\AccountNewFlyout.xaml.h">
+      <DependentUpon>View\Settings\AccountNewFlyout.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="View\Settings\AutorizationFlyout.xaml.h">
+      <DependentUpon>View\Settings\AutorizationFlyout.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="View\SplashFilterView.xaml.h">
+      <DependentUpon>View\SplashFilterView.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="View\SplashScreenView.xaml.h">
+      <DependentUpon>View\SplashScreenView.xaml</DependentUpon>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Common\StandartResource.xaml">
+      <DeploymentContent>true</DeploymentContent>
+    </Page>
+    <Page Include="Controls\AppBarMenuControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ChangedPasswordControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\CitiesMenuControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ImageShopControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\OrderCompletedControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\PersonalDataChangedControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\PickShopControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ShopMenuControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <DeploymentContent>true</DeploymentContent>
+    </Page>
+    <Page Include="View\AboutShopView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\AccessoriesView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\AccountView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\BasketView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\CategoryTreeView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\TrackerExtensionsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\TrackerView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\OrderView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ProductExtensionsPhotoView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ProductExtensionsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ProductView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SearchView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Settings\AccountNewFlyout.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Settings\AutorizationFlyout.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SplashFilterView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SplashScreenView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="Enter_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\EnterLogo.scale-100.png" />
+    <Image Include="Assets\Logo.scale-100.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\MediumGray.png" />
+    <Image Include="Assets\SmallLogo.scale-100.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-180.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\StoreLogo.scale-100.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-100.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\StoreLogo.scale-180.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Wide.scale-100.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Images\1.png" />
+    <Image Include="Images\1438.png" />
+    <Image Include="Images\1601.png" />
+    <Image Include="Images\185.png" />
+    <Image Include="Images\1889.png" />
+    <Image Include="Images\21.png" />
+    <Image Include="Images\224.png" />
+    <Image Include="Images\225.png" />
+    <Image Include="Images\2545.png" />
+    <Image Include="Images\311.png" />
+    <Image Include="Images\3172.png" />
+    <Image Include="Images\320.png" />
+    <Image Include="Images\443.png" />
+    <Image Include="Images\647.png" />
+    <Image Include="Images\788.png" />
+    <Image Include="Images\80.png" />
+    <Image Include="Images\923.png" />
+    <Image Include="Images\appbar.cart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="App.xaml.cpp">
+      <DependentUpon>App.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Controls\AppBarMenuControl.xaml.cpp">
+      <DependentUpon>Controls\AppBarMenuControl.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Controls\ChangedPasswordControl.xaml.cpp">
+      <DependentUpon>Controls\ChangedPasswordControl.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Controls\CitiesMenuControl.xaml.cpp">
+      <DependentUpon>Controls\CitiesMenuControl.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Controls\ImageShopControl.xaml.cpp">
+      <DependentUpon>Controls\ImageShopControl.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Controls\OrderCompletedControl.xaml.cpp">
+      <DependentUpon>Controls\OrderCompletedControl.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Controls\PersonalDataChangedControl.xaml.cpp">
+      <DependentUpon>Controls\PersonalDataChangedControl.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Controls\PickShopControl.xaml.cpp">
+      <DependentUpon>Controls\PickShopControl.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Controls\ShopMenuControl.xaml.cpp">
+      <DependentUpon>Controls\ShopMenuControl.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Controls\UI\SliderRange.cpp" />
+    <ClCompile Include="Converters\BuyableConverter.cpp" />
+    <ClCompile Include="Converters\MediaImageConverter.cpp" />
+    <ClCompile Include="Converters\PriceConverter.cpp" />
+    <ClCompile Include="Converters\ProductValueConverter.cpp" />
+    <ClCompile Include="Converters\TextSourceConvert.cpp" />
+    <ClCompile Include="Converters\TrackerStatusConverter.cpp" />
+    <ClCompile Include="Converters\VisibilityNullValueConverter.cpp" />
+    <ClCompile Include="DataModel\BasketProductSerialize.cpp" />
+    <ClCompile Include="DataModel\GroupCategorySource.cpp" />
+    <ClCompile Include="DataModel\HubDataModel.cpp" />
+    <ClCompile Include="DataModel\IncrementFilterLoading.cpp" />
+    <ClCompile Include="DataModel\IncrementLoadingBase.cpp" />
+    <ClCompile Include="DataModel\Storage\AutorizationStorage.cpp" />
+    <ClCompile Include="Helpers.cpp" />
+    <ClCompile Include="LoadStateEventArgs.cpp" />
+    <ClCompile Include="MainPage.xaml.cpp">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="RelayCommand.cpp" />
+    <ClCompile Include="SuspensionManager.cpp" />
+    <ClCompile Include="Template\CategoryTemplateSelector.cpp" />
+    <ClCompile Include="Template\ToastNotificationCore.cpp" />
+    <ClCompile Include="Template\VariableGridView.cpp" />
+    <ClCompile Include="ViewModelsBase.cpp" />
+    <ClCompile Include="ViewModels\AboutShopViewModels.cpp" />
+    <ClCompile Include="ViewModels\AccessoriesViewModels.cpp" />
+    <ClCompile Include="ViewModels\AccountViewModels.cpp" />
+    <ClCompile Include="ViewModels\BasketViewModels.cpp" />
+    <ClCompile Include="ViewModels\CategoryTreeViewModels.cpp" />
+    <ClCompile Include="ViewModels\MainViewModels.cpp" />
+    <ClCompile Include="ViewModels\TrackerExtensionsViewModels.cpp" />
+    <ClCompile Include="ViewModels\TrackerViewModels.cpp" />
+    <ClCompile Include="ViewModels\OrderViewModels.cpp" />
+    <ClCompile Include="ViewModels\ProductExtensionsPhotoViewModels.cpp" />
+    <ClCompile Include="ViewModels\ProductExtensionsViewModels.cpp" />
+    <ClCompile Include="ViewModels\ProductViewModels.cpp" />
+    <ClCompile Include="ViewModels\SearchViewModels.cpp" />
+    <ClCompile Include="ViewModels\SplashFilterViewModels.cpp" />
+    <ClCompile Include="View\AboutShopView.xaml.cpp">
+      <DependentUpon>View\AboutShopView.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="View\AccessoriesView.xaml.cpp">
+      <DependentUpon>View\AccessoriesView.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="View\AccountView.xaml.cpp">
+      <DependentUpon>View\AccountView.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="View\BasketView.xaml.cpp">
+      <DependentUpon>View\BasketView.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="View\CategoryTreeView.xaml.cpp">
+      <DependentUpon>View\CategoryTreeView.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="View\TrackerExtensionsView.xaml.cpp">
+      <DependentUpon>View\TrackerExtensionsView.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="View\TrackerView.xaml.cpp">
+      <DependentUpon>View\TrackerView.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="View\OrderView.xaml.cpp">
+      <DependentUpon>View\OrderView.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="View\ProductExtensionsPhotoView.xaml.cpp">
+      <DependentUpon>View\ProductExtensionsPhotoView.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="View\ProductExtensionsView.xaml.cpp">
+      <DependentUpon>View\ProductExtensionsView.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="View\ProductView.xaml.cpp">
+      <DependentUpon>View\ProductView.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="View\SearchView.xaml.cpp">
+      <DependentUpon>View\SearchView.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="View\Settings\AccountNewFlyout.xaml.cpp">
+      <DependentUpon>View\Settings\AccountNewFlyout.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="View\Settings\AutorizationFlyout.xaml.cpp">
+      <DependentUpon>View\Settings\AutorizationFlyout.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="View\SplashFilterView.xaml.cpp">
+      <DependentUpon>View\SplashFilterView.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="View\SplashScreenView.xaml.cpp">
+      <DependentUpon>View\SplashScreenView.xaml</DependentUpon>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EnterStore\EnterStore.vcxproj">
+      <Project>{fa7842ac-991b-47f6-9cc3-f78e7c819167}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\EnterTask\EnterTask.vcxproj">
+      <Project>{704113d7-7370-4b94-aa85-9cdfb40f91c3}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\ru-RU\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="Bing.Maps.Xaml, Version=1.313.0825.0" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\Microsoft.ApplicationInsights.Telemetry.WindowsStore.0.6.56.3\build\Microsoft.ApplicationInsights.Telemetry.WindowsStore.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.Telemetry.WindowsStore.0.6.56.3\build\Microsoft.ApplicationInsights.Telemetry.WindowsStore.targets')" />
+  </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Включите восстановление пакетов NuGet, чтобы загрузить их. Дополнительные сведения см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.Telemetry.WindowsStore.0.6.56.3\build\Microsoft.ApplicationInsights.Telemetry.WindowsStore.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.Telemetry.WindowsStore.0.6.56.3\build\Microsoft.ApplicationInsights.Telemetry.WindowsStore.targets'))" />
+  </Target>
+</Project>

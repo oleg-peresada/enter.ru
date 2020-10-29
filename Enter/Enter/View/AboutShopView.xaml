@@ -1,0 +1,124 @@
+﻿<Page
+    x:Name="root"
+    x:Class="Enter.View.AboutShopView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:control="using:Enter.Controls"
+    mc:Ignorable="d">
+
+    <Grid Style="{StaticResource StandartPanelStyle}">
+        <ProgressRing Width="110" Height="110" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                      IsActive="{Binding ElementName=root, Path=DataContext.IsActive}"/>
+        
+        <Hub Visibility="{Binding ElementName=root, Path=DataContext.RootVisibility}">
+            <Hub.Header>
+                <Grid Height="95" Margin="0, -30, 0, 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="0" x:Name="backButton" Margin="0,0,10,0" Height="95" RequestedTheme="Light"
+                                          Command="{Binding DataContext.GoBackCommand, ElementName=root}" Style="{StaticResource BackButtonForegroundLightStyle}"/>
+                </Grid>
+            </Hub.Header>
+            <HubSection Width="{Binding ElementName=root, Path=DataContext.WidthAbout}" Header="Обзор" Style="{StaticResource HubSectionDefault}" Margin="0,-30,0,0">
+                <HubSection.Background>
+                    <ImageBrush ImageSource="{Binding Shop.MediaImage, Converter={StaticResource MediaImageConverter}, ConverterParameter=1500}"/>
+                </HubSection.Background>
+                <DataTemplate>
+                    <Grid Background="#E5FFFFFF" Height="400" Width="{Binding ElementName=root, Path=DataContext.WidthAbout}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0" Text="{Binding Shop.Name, Converter={StaticResource TextSourceConvert}}" FontSize="30.555" 
+                                   FontWeight="Light" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Foreground="Black" Margin="15,15,10,0"/>
+
+                        <StackPanel Grid.Row="1" Orientation="Vertical" Margin="15, 5, 5, 0">
+                            <TextBlock Text="Время работы" FontSize="28.555" FontWeight="Normal" Margin="0, 0, 10, 0" Foreground="Green"/>
+                            <TextBlock Text="{Binding Shop.WorkingTime, TargetNullValue={StaticResource StringNoDataValue}}" FontSize="24" FontWeight="Light" TextWrapping="Wrap" Foreground="Black"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="2" Orientation="Vertical" Margin="15, 5, 5, 0">
+                            <TextBlock Text="Телефон" FontSize="28.555" FontWeight="Normal" Margin="0, 0, 10, 0" Foreground="Green"/>
+                            <TextBlock Text="{Binding Shop.Phone, TargetNullValue={StaticResource StringNoDataValue}}" FontSize="24" FontWeight="Light" Foreground="Black"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="3" Orientation="Vertical" Margin="15, 5, 5, 0">
+                            <TextBlock Text="Адрес" FontSize="28.555" FontWeight="Normal" Margin="0, 0, 10, 0" Foreground="Green"/>
+                            <TextBlock Text="{Binding Shop.Address, TargetNullValue={StaticResource StringNoDataValue}}" FontSize="24" FontWeight="Light" TextWrapping="Wrap" Foreground="Black"/>
+                        </StackPanel>
+
+                        <Border Grid.Row="4" VerticalAlignment="Bottom" HorizontalAlignment="Left" Background="#99000000" Padding="15,10,15,10" Margin="0">
+                            <Button Content="Все магазины" Style="{StaticResource TextButtonStyle}" FontSize="22" FontWeight="Light"
+                                    Command="{Binding ElementName=root, Path=DataContext.MoreShopCommand}"/>
+                        </Border>
+
+
+                        <Border Grid.Row="4" Background="#99000000" VerticalAlignment="Bottom" HorizontalAlignment="Right" Padding="10">
+                            <Button Style="{StaticResource TextButtonStyle}" Command="{Binding ElementName=root, Path=DataContext.ImageCommand}" Width="320">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Все изображения" FontSize="22" FontWeight="Light"/>
+                                    <TextBlock Text="{Binding CountImages}" FontSize="22" Margin="10, 0, 0, 0" FontWeight="Light"/>
+                                </StackPanel>
+                            </Button>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </HubSection>
+
+            <HubSection Width="600" Header="Описание магазина" Margin="0,-50,0,0">
+                <HubSection.Background>
+                    <SolidColorBrush Color="#BF808080"/>
+                </HubSection.Background>
+                <DataTemplate>
+                    <ScrollViewer Style="{StaticResource ScrollViewerVerticalStyle}">
+                        <TextBlock Text="{Binding Shop.Description, Converter={StaticResource TextSourceConvert}, TargetNullValue={StaticResource StringNoDataValue}}" 
+                                   FontSize="18.5" TextWrapping="WrapWholeWords" IsTextSelectionEnabled="True"/>
+                    </ScrollViewer>
+                </DataTemplate>
+            </HubSection>
+
+            <HubSection Width="700" Header="Как добраться" Margin="0,-50,0,0">
+                <DataTemplate>
+                    <ScrollViewer Style="{StaticResource ScrollViewerVerticalStyle}">
+                        <Grid Margin="0, 0, 25, 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Text="На автомобиле" FontSize="24" Foreground="Orange"/>
+                            <TextBlock Grid.Row="1" Text="{Binding Shop.WayAuto, Converter={StaticResource TextSourceConvert}, TargetNullValue={StaticResource StringNoDataValue}}" FontSize="20" FontWeight="Light" TextWrapping="Wrap" IsTextSelectionEnabled="True"/>
+                            <TextBlock Grid.Row="2" Text="Пешком" FontSize="24" Foreground="Orange" Margin="0,15,0,0"/>
+                            <TextBlock Grid.Row="3" Text="{Binding Shop.WayWalk, Converter={StaticResource TextSourceConvert}, TargetNullValue={StaticResource StringNoDataValue}}" FontSize="20" FontWeight="Light" TextWrapping="Wrap" IsTextSelectionEnabled="True"/>
+                        </Grid>
+                    </ScrollViewer>
+                </DataTemplate>
+            </HubSection>
+        </Hub>
+
+    </Grid>
+
+    <Page.TopAppBar>
+        <AppBar>
+            <control:AppBarMenuControl/>
+        </AppBar>
+    </Page.TopAppBar>
+    
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Label="Обновить" Icon="Refresh" Command="{Binding RefreshCommand}"/>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>

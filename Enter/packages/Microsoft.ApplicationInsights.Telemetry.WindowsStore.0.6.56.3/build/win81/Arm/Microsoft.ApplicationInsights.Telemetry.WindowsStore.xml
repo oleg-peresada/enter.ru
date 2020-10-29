@@ -1,0 +1,222 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        "ClientAnalytics81"
+    </assembly>
+    <members>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsChannel.LogError(System.String,System.String,Windows.Foundation.Collections.IIterable`1{Windows.Foundation.Collections.IKeyValuePair`2{System.String^,System.Object^}^},System.String,System.String)">
+            <summary>Reports an error to the Application Insights service.</summary>
+            <param name="errorName">Your name for the error.</param>
+            <param name="errorMessage">Error message to log.</param>
+            <param name="properties">Named values of your choice. One property can have a numeric value.</param>
+            <param name="errorType"> A type description of your choice.</param>
+            <param name="errorStackTrace">Stack trace for the error.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsChannel.LogError(System.String,System.String,Windows.Foundation.Collections.IIterable`1{Windows.Foundation.Collections.IKeyValuePair`2{System.String^,System.Object^}^},System.String)">
+            <summary>Reports an error to the Application Insights service.</summary>
+            <param name="errorName">Your name for the error.</param>
+            <param name="errorMessage">Error message to log.</param>
+            <param name="properties">Named values of your choice. One property can have a numeric value.</param>
+            <param name="errorType">A type description of your choice.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsChannel.LogError(System.String,System.String,Windows.Foundation.Collections.IIterable`1{Windows.Foundation.Collections.IKeyValuePair`2{System.String^,System.Object^}^})">
+            <summary>Reports an error to the Application Insights service.</summary>
+            <param name="errorName">Your name for the error.</param>
+            <param name="errorMessage">Error message to log.</param>
+            <param name="properties">Named values of your choice. One property can have a numeric value. </param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsChannel.LogError(System.String,System.String)">
+            <summary>Reports an error to the Application Insights service.</summary>
+            <param name="errorName">Your name for the error.</param>
+            <param name="errorMessage">Error message to log.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsChannel.LogError(System.String)">
+            <summary>Reports an error to the Application Insights service.</summary>
+            <param name="errorName">Your name for the error.</param>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsChannel.Default">
+            <summary>Gets the default Client Analytics Channel.</summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsChannel.LogValuePair(System.String,System.Int32,Windows.Foundation.Diagnostics.LoggingLevel)">
+            <summary>Logs data to the current LoggingChannel with the specified LoggingLevel.</summary>
+            <param name="value1">The string to associate with value2.</param>
+            <param name="value2">The value to associate with value1.</param>
+            <param name="level">The logging level.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsChannel.LogValuePair(System.String,System.Int32)">
+            <summary>Logs data to the current LoggingChannel.</summary>
+            <param name="value1">The string to associate with value2.</param>
+            <param name="value2">The value to associate with value1.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsChannel.LogMessage(System.String,Windows.Foundation.Diagnostics.LoggingLevel)">
+            <summary>Logs a message to the current LoggingChannel with the specified LoggingLevel.</summary>
+            <param name="eventString">The message to log.</param>
+            <param name="level">The logging level.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsChannel.LogMessage(System.String)">
+            <summary>Logs a message to the current LoggingChannel.</summary>
+            <param name="eventString">The message to log.</param>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsChannel.Level">
+            <summary>Gets the level of detail for messages from the current Client Analytics Channel.</summary>
+            <returns>The level of detail for messages.</returns>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsChannel.Name">
+            <summary>Gets the name of the current ClientAnalyticsChannel.</summary>
+            <returns>Read only name of the client analytics channel.</returns>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsChannel.Enabled">
+            <summary>Indicates whether messages are being logged on the current channel.</summary>
+            <returns>True if messages are being logged on the current channel; otherwise, false.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsChannel.LogPageView(System.String)">
+            <summary>Logs app specific page viewed by providing custom page path.</summary>
+            <param name="pagePath">Page URI or custom page path.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsChannel.StartTimedEvent(System.String,Windows.Foundation.Collections.IIterable`1{Windows.Foundation.Collections.IKeyValuePair`2{System.String^,System.Object^}^})">
+            <summary>Creates an event timer.</summary>
+            <param name="eventName">Your name for the event.</param>
+            <param name="properties">Named values of your choice. One property can have a numeric value.</param>
+            <returns>Timer object that you can End to log the event, or Cancel.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsChannel.StartTimedEvent(System.String)">
+            <summary>Creates an event timer.</summary>
+            <param name="eventName">Your name for the event.</param>
+            <returns>Timer object that you can End to log the event, or Cancel.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsChannel.LogEvent(System.String,Windows.Foundation.Collections.IIterable`1{Windows.Foundation.Collections.IKeyValuePair`2{System.String^,System.Object^}^})">
+            <summary>Reports an event to the Application Insights service.</summary>
+            <param name="eventName">Your name for the event.</param>
+            <param name="properties">Named values of your choice. One property can have a numeric value.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsChannel.LogEvent(System.String)">
+            <summary>Reports an event to the Application Insights service.</summary>
+            <param name="eventName">Your name for the event.</param>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsChannel">
+            <summary>Provides logging methods for the Client Analytics Channel.</summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsSession.Default">
+            <summary>Gets the default Client Analytics Session.</summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsSession.CloseAndSaveToFileAsync">
+            <summary>Ends the current logging session and saves it to a file.</summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsSession.Name">
+            <summary>Gets the name of Client Analytics Session.</summary>
+            <returns>Read only name of the client analytics session.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsSession.RemoveLoggingChannel(Windows.Foundation.Diagnostics.ILoggingChannel)">
+            <summary>Removes a logging channel from the ClientAnalyticsSession.</summary>
+            <param name="loggingChannel">Channel to remove.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsSession.AddLoggingChannel(Windows.Foundation.Diagnostics.ILoggingChannel,Windows.Foundation.Diagnostics.LoggingLevel)">
+            <summary>Adds a logging channel for a maximum logging level to the ClientAnalyticsSession.</summary>
+            <param name="loggingChannel">Channel to add.</param>
+            <param name="maxLevel">The logging level for the logging channel which needs to be added.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsSession.AddLoggingChannel(Windows.Foundation.Diagnostics.ILoggingChannel)">
+            <summary>Adds a logging channel to the ClientAnalyticsSession.</summary>
+            <param name="loggingChannel">Channel to add.</param>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsSession.AnonymousId">
+            <summary>Unique id for this device.</summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsSession.AppUserId">
+            <summary>Gets or sets custom user id which can be used to enable tracking app sessions per user.</summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsSession.SessionId">
+            <summary>Unique id for the current app session.</summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsSession.ApplicationInsightsId">
+            <summary>Gets the application key you provided to Start().</summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsSession.ResumeAppRestartTimeout">
+            <summary>Indicates time interval in seconds after which, for a suspended application session, Client Analytics will consider the data collection session as complete.
+If the application resumes after this time interval, Client Analytics will start new data collection session and reports will show more than one session.
+The default interval is 5 seconds.</summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsSession.Enabled">
+            <summary>Set to false to disable client analytics data collection and transfer. Default is true.</summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsSession.Start(System.String)">
+            <summary>Enables Default ClientAnalyticsChannel to collect data.</summary>
+            <param name="applicationInsightsId">Provide the application key you got from the Application Insights service.</param>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.Telemetry.WindowsStore.ClientAnalyticsSession">
+            <summary>Enables starting and configuring Client Analytics Sessions.</summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.WindowsStore.IClientAnalyticsChannel.LogPageView(System.String)">
+**
+**
+**
+**
+**
+<summary>Logs app specific page viewed by providing custom page path.</summary><param name="pagePath">Page URI or custom page path.</param></member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.WindowsStore.IClientAnalyticsChannel.StartTimedEvent(System.String,Windows.Foundation.Collections.IIterable`1{Windows.Foundation.Collections.IKeyValuePair`2{System.String^,System.Object^}^})">
+            <summary>Creates an event timer.</summary>
+            <param name="eventName">Your name for the event.</param>
+            <param name="properties">Named values of your choice. One property can have a numeric value.</param>
+            <returns>Timer object that you can End to log the event, or Cancel.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.WindowsStore.IClientAnalyticsChannel.StartTimedEvent(System.String)">
+            <summary>Creates an event timer.</summary>
+            <param name="eventName">Your name for the event.</param>
+            <returns>Timer object that you can End to log the event, or Cancel.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.WindowsStore.IClientAnalyticsChannel.LogEvent(System.String,Windows.Foundation.Collections.IIterable`1{Windows.Foundation.Collections.IKeyValuePair`2{System.String^,System.Object^}^})">
+            <summary>Reports an event to the Application Insights service.</summary>
+            <param name="eventName">Your name for the event.</param>
+            <param name="properties">Named values of your choice. One property can have a numeric value.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.WindowsStore.IClientAnalyticsChannel.LogEvent(System.String)">
+            <summary>Reports an event to the Application Insights service.</summary>
+            <param name="eventName">Your name for the event.</param>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.Telemetry.WindowsStore.IClientAnalyticsChannel">
+            <summary>Provides logging methods for the Client Analytics Channel.</summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.WindowsStore.IClientAnalyticsSession.ApplicationInsightsId">
+            <summary>Gets the application key you provided to Start().</summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.WindowsStore.IClientAnalyticsSession.ResumeAppRestartTimeout">
+            <summary>Indicates time interval in seconds after which, for a suspended application session, Client Analytics will consider the data collection session as complete.
+If the application resumes after this time interval, Client Analytics will start new data collection session and reports will show more than one session.
+The default interval is 5 seconds.</summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.WindowsStore.IClientAnalyticsSession.Enabled">
+            <summary>Set to false to disable client analytics data collection and transfer. Default is true.</summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.WindowsStore.IClientAnalyticsSession.SessionId">
+            <summary>Unique id for the current app session.</summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.WindowsStore.IClientAnalyticsSession.AnonymousId">
+            <summary>Unique id for this device.</summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.WindowsStore.IClientAnalyticsSession.AppUserId">
+            <summary>Gets or sets custom user id which can be used to enable tracking app sessions per user.</summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.WindowsStore.IClientAnalyticsSession.Start(System.String)">
+            <summary>Enables Default ClientAnalyticsChannel to collect data.</summary>
+            <param name="applicationInsightsId">Provide the application key you got from the Application Insights service.</param>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.Telemetry.WindowsStore.IClientAnalyticsSession">
+            <summary>Enables starting and configuring Client Analytics Sessions.</summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.WindowsStore.TimedAnalyticsEvent.Cancel">
+            <summary>Cancels timed analytics event and prevent data logging on End/Dispose.</summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Telemetry.WindowsStore.TimedAnalyticsEvent.End">
+            <summary>Ends the timed analytics event and logs its total duration.</summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.WindowsStore.TimedAnalyticsEvent.Name">
+            <summary>Read only name of the timed analytics event.</summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Telemetry.WindowsStore.TimedAnalyticsEvent.Properties">
+            <summary>Properties of the timed analytics event in which &lt;key, value&gt; pairs can be added.</summary>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.Telemetry.WindowsStore.TimedAnalyticsEvent">
+            <summary>Encapsulates the Timed Event object for Client Analytics.</summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,123 @@
+﻿<Page
+    x:Name="root"
+    x:Class="Enter.View.TrackerView"
+    xmlns:control="using:Enter.Controls"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Enter"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Style x:Key="OrderTextBlockStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="24.555"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="SelectionHighlightColor" Value="Orange"/>
+            <Setter Property="IsColorFontEnabled" Value="True"/>
+        </Style>
+    </Page.Resources>
+    
+    <Grid Style="{StaticResource StandartPanelStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <AppBarButton Grid.Column="0" x:Name="backButton" Icon="Back" Height="95" Margin="10,46,10,0" 
+                          Command="{Binding DataContext.GoBackCommand, ElementName=root}"/>
+            <TextBlock Grid.Column="1" Text="Мои заказы" Style="{StaticResource HeaderTextBlockStyle}" Margin="10, 56, 10, 0"/>
+            <TextBlock Grid.Column="2" Text="(" Style="{StaticResource HeaderTextBlockStyle}" Margin="15, 56, 10, 0"/>
+            <TextBlock Grid.Column="3" Text="{Binding ElementName=root, Path=DataContext.Size}" Style="{StaticResource HeaderTextBlockStyle}" Margin="0, 56, 0, 0"/>
+            <TextBlock Grid.Column="4" Text=")" Style="{StaticResource HeaderTextBlockStyle}" Margin="10, 56, 10, 0"/>
+        </Grid>
+
+        <ProgressRing Grid.Row="1" Width="110" Height="110" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                      IsActive="{Binding ElementName=root, Path=DataContext.IsActive}"/>
+        
+        <Grid Grid.Row="1" Visibility="{Binding ElementName=root, Path=DataContext.RootVisibility}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="350"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <ScrollViewer Grid.Column="0" Style="{StaticResource ScrollViewerVerticalStyle}">
+                <Grid Margin="16,20,12,12">
+                    <TextBlock Text="Чтобы посмотреть подробности заказа кликните на соответствующую плитку." FontSize="22" FontWeight="Light" Foreground="Gray" TextWrapping="Wrap"/>
+                </Grid>
+            </ScrollViewer>
+
+            <GridView Grid.Column="1" SelectionMode="None" IsItemClickEnabled="True" 
+                      ItemsSource="{Binding ElementName=root, Path=DataContext.TrackerVector}" ItemClick="OnItemClick">
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Width="400" Height="250" Background="#59808080">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10,5,5,0">
+                                <TextBlock Text="Заказ" Style="{StaticResource OrderTextBlockStyle}" Foreground="Orange"/>
+                                <TextBlock Text="{Binding Number}" Style="{StaticResource OrderTextBlockStyle}" Foreground="Orange" Margin="5,0,0,0"/>
+                            </StackPanel>
+                            
+                            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10,1.5,5,0">
+                                <TextBlock Text="От" Style="{StaticResource OrderTextBlockStyle}" FontSize="20.555" Foreground="Gray"/>
+                                <TextBlock Text="{Binding Added}" Style="{StaticResource OrderTextBlockStyle}" FontSize="20.555" Margin="5,0,0,0" Foreground="Gray"/>
+                            </StackPanel>
+
+                            <TextBlock Grid.Row="2" Text="{Binding StatusId, Converter={StaticResource TrackerStatusConverter}, ConverterParameter=1}" 
+                                       Style="{StaticResource OrderTextBlockStyle}" FontSize="18.555" Margin="10,0,0,0" Foreground="#FFBFBFBF"
+                                       Visibility="{Binding StatusId, Converter={StaticResource TrackerStatusConverter}, ConverterParameter=0}"/>
+
+                            <TextBlock Grid.Row="3" Text="{Binding PaymentId, Converter={StaticResource TrackerPaymentConverter}}" Style="{StaticResource OrderTextBlockStyle}" FontSize="18.555" Margin="10,0,0,0" Foreground="#FFBFBFBF"/>
+
+                            <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="10,1.5,0,0">
+                                <TextBlock Text="Сумма заказа" Style="{StaticResource OrderTextBlockStyle}" FontSize="20"/>
+                                <TextBlock Text="{Binding Sum, Converter={StaticResource PriceConvert}}" Style="{StaticResource OrderTextBlockStyle}" FontSize="20" Margin="5,0,5,0" TextWrapping="NoWrap" TextTrimming="WordEllipsis"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="5" Orientation="Vertical" Margin="10,1.5,0,0" Visibility="{Binding DeliveryDate, Converter={StaticResource TrackerDateConverter}}">
+                                <TextBlock Text="Дата доставки" Style="{StaticResource OrderTextBlockStyle}" FontSize="20"/>
+                                <TextBlock Text="{Binding DeliveryDate}" Style="{StaticResource OrderTextBlockStyle}" FontSize="20"/>
+                            </StackPanel>
+                            
+                            <StackPanel Grid.Row="6" Orientation="Horizontal" Margin="10,1.5,5,10" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                                <TextBlock Text="Товаров в заказе" Style="{StaticResource OrderTextBlockStyle}" FontSize="20.555"/>
+                                <TextBlock Text="{Binding ProductSize}" Style="{StaticResource OrderTextBlockStyle}" FontSize="20.555" Margin="5,0,0,0"/>
+                                <TextBlock Text="шт." Style="{StaticResource OrderTextBlockStyle}" FontSize="20.555" Margin="5,0,0,0"/>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+        </Grid>
+    </Grid>
+    
+    <Page.TopAppBar>
+        <AppBar>
+            <control:AppBarMenuControl/>
+        </AppBar>
+    </Page.TopAppBar>
+    
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Label="Обновить" Icon="Refresh" Command="{Binding RefreshCommand}"/>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>

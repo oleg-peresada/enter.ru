@@ -1,0 +1,67 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Enter.Controls.UI">
+    
+
+    <Style TargetType="local:SliderRange">
+        <Setter Property="Foreground" Value="#FF616161"/>
+        <Setter Property="Background" Value="#FFD18907"/>
+        <Setter Property="MinWidth" Value="50"/>
+        <Setter Property="MinHeight" Value="10"/>
+        <Setter Property="Width" Value="400"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="FontSize" Value="18.555"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:SliderRange">
+                    <Grid x:Name="RootGrid" Height="{TemplateBinding Height}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <ContentPresenter Grid.Row="0" x:Name="Header" 
+                                          Content="{TemplateBinding Header}" 
+                                          ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                          Margin="0, 0, 0, 10" FontSize="18.555"/>
+                        
+                        <Grid Grid.Row="1" Margin="0, 0, 0, 20">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Left">
+                                <ContentPresenter x:Name="MinRange" Content="{TemplateBinding ValueLeft}" FontSize="{TemplateBinding FontSize}" Foreground="White"/>
+                                <ContentPresenter x:Name="UintMinRange" Content="{TemplateBinding Uint}" FontSize="{TemplateBinding FontSize}" Foreground="White" Margin="10,0,0,0"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Right">
+                                <ContentPresenter x:Name="MaxRange" Content="{TemplateBinding ValueRight}" FontSize="{TemplateBinding FontSize}" Foreground="White"/>
+                                <ContentPresenter x:Name="UintMaxRange" Content="{TemplateBinding Uint}" FontSize="{TemplateBinding FontSize}" Foreground="White" Margin="10,0,0,0"/>
+                            </StackPanel>
+                        </Grid>
+                        
+                        <Border Grid.Row="2" Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Height="{TemplateBinding MinHeight}"
+                                VerticalAlignment="Stretch">
+                            <Canvas Margin="{TemplateBinding Padding}" 
+                                    Height="{TemplateBinding MinHeight}" 
+                                    Width="{TemplateBinding Width}">
+                                <Rectangle x:Name="PART_RectangleLeft" 
+                                           Fill="{TemplateBinding Foreground}" 
+                                           Height="{TemplateBinding MinHeight}"
+                                           VerticalAlignment="Stretch"/>
+                                <Rectangle x:Name="PART_RectangleRight"
+                                           Fill="{TemplateBinding Foreground}"
+                                           Height="{TemplateBinding MinHeight}"
+                                           VerticalAlignment="Stretch"/>
+                                
+                                <Thumb x:Name="PART_ThumbLeft" Width="15" Height="40" Margin="-2,-15.5,0,0"/>
+                                <Thumb x:Name="PART_ThumbRight" Width="15" Height="40" Margin="0,-15.5,-10,0"/>
+                            </Canvas>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

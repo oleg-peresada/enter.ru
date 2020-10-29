@@ -1,0 +1,13 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="CheckNonWin81StoreApp" Condition="('$(WindowsAppContainer)' != 'true') OR ('$(ProjectExt)' != '.vcxproj') OR (('$(ProjectExt)' == '.vcxproj') AND (('$(ApplicationType)' != 'Windows Store') OR ('$(ApplicationTypeRevision)' != '8.1')))" BeforeTargets="PrepareForBuild">
+    <Error Text="Application Insights SDK for Windows Store only supports Store Apps. Please consult http://go.microsoft.com/fwlink/?LinkID=293805." />
+  </Target>
+  <Target Name="CheckAnyCPU" Condition="('$(PlatformTarget)' != 'x86') AND ('$(PlatformTarget)' != 'ARM') AND ('$(PlatformTarget)' != 'x64')" BeforeTargets="PrepareForBuild">
+    <Error Text="Application Insights SDK for Windows Store does not support the $(Platform) target platform. Please consult http://go.microsoft.com/fwlink/?LinkID=293805." />
+  </Target>  
+  <ItemGroup Condition="('$(ProjectExt)' == '.vcxproj') AND ('$(ApplicationType)' == 'Windows Store') AND ('$(ApplicationTypeRevision)' == '8.1')">
+    <Reference Include="Microsoft.ApplicationInsights.Telemetry.WindowsStore">
+      <HintPath>$(MSBuildThisFileDirectory)\Win81\$(PlatformTarget)\Microsoft.ApplicationInsights.Telemetry.WindowsStore.winmd</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

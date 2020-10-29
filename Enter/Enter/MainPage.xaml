@@ -1,0 +1,191 @@
+﻿<Page
+    x:Name="root"
+    x:Class="Enter.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Enter"
+    xmlns:control="using:Enter.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <CollectionViewSource x:Name="zoomOutHubSource" Source="{Binding ElementName=RootHub, Path=SectionHeaders}"/>
+    </Page.Resources>
+    
+    <Grid Style="{StaticResource StandartPanelStyle}">
+        <Grid Visibility="{Binding ElementName=root, Path=DataContext.ProgressPanel}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="140"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <AppBarButton Grid.Row="0" Icon="Back" Height="95" Margin="10,46,10,0" Command="{Binding DataContext.GoBackCommand, ElementName=root}"/>
+            <ProgressRing Grid.Row="1" Width="110" Height="110" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" IsActive="True"/>
+        </Grid>
+
+        <SemanticZoom IsZoomOutButtonEnabled="True" Visibility="{Binding ElementName=root, Path=DataContext.ContentPanel}">
+            <SemanticZoom.ZoomedInView>
+                <Hub x:Name="RootHub">
+                    <Hub.HeaderTemplate>
+                        <DataTemplate>
+                            <Grid Width="{Binding ElementName=root, Path=DataContext.WidthScreen}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="Enter.ru" FontSize="56" VerticalAlignment="Bottom" HorizontalAlignment="Stretch"/>
+                                <SearchBox Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Right" Width="300" Height="35" Margin="0,0,100,0"
+                                   PlaceholderText="Поиск товаров" 
+                                   SuggestionsRequested="OnSearchRequested" 
+                                   QuerySubmitted="OnSearchSubmitted" 
+                                   ResultSuggestionChosen="OnResultSuggestionChosen"/>
+                            </Grid>
+                        </DataTemplate>
+                    </Hub.HeaderTemplate>
+
+                    <HubSection Header="Акции Enter.ru" Width="800">
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="370"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <FlipView x:Name="promoBannerFlip" Grid.Row="0" ItemsSource="{Binding ElementName=root, Path=DataContext.PromoBanner}" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                                    <FlipView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <Image Source="{Binding MediaImage, Converter={StaticResource PromoBannerImageConverter}, ConverterParameter=920x320}"/>
+                                                <Border VerticalAlignment="Top" HorizontalAlignment="Right" Background="#E55B5B5B" Padding="10,5" Margin="0,59,0,0">
+                                                    <Button Content="Подробнее" Style="{StaticResource TextButtonStyle}" 
+                                                            Command="{Binding ElementName=root, Path=DataContext.PromoCommand}"
+                                                            CommandParameter="{Binding ElementName=promoBannerFlip, Path=SelectedItem}"
+                                                            FontSize="26" FontWeight="Light"/>
+                                                </Border>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </FlipView.ItemTemplate>
+                                    <FlipView.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <VirtualizingStackPanel Orientation="Vertical"/>
+                                        </ItemsPanelTemplate>
+                                    </FlipView.ItemsPanel>
+                                </FlipView>
+
+                                <Grid Grid.Row="1" Margin="0,20,0,0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Grid.Column="0" Grid.Row="0" Text="Контакт-сENTER" FontSize="20" FontWeight="Normal" Foreground="Gray"/>
+                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="8 (800) 700-00-09" FontSize="26" FontWeight="Light" Foreground="Gray"/>
+                                    <TextBlock Grid.Column="0" Grid.Row="2" Text="Звонок бесплатный." FontSize="22" FontWeight="Light" Foreground="Gray"/>
+
+                                    <TextBlock Grid.Column="1" Grid.Row="0" Text="8 (495) 775-00-06" FontSize="26" FontWeight="Light" Foreground="Gray"/>
+                                    <TextBlock Grid.Column="1" Grid.Row="1" Text="8 (812) 703-77-30" FontSize="26" FontWeight="Light" Foreground="Gray"/>
+                                    <TextBlock Grid.Column="1" Grid.Row="2" Text="Радость в подарок :)" FontSize="20" FontWeight="Normal" Foreground="Gray"/>
+                                </Grid>
+                            </Grid>
+                        </DataTemplate>
+                    </HubSection>
+
+                    <HubSection Header="Управление Enter.ru">
+                        <DataTemplate>
+                            <GridView ItemsSource="{Binding MainHubDataModel}" SelectionMode="None" IsItemClickEnabled="True" ItemClick="OnHubItemClick">
+                                <GridView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Width="285" Height="85" Background="#FF666666">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="7.5"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Border Grid.Column="0" Background="#FFECA100"/>
+                                                <TextBlock Grid.Column="1" Text="{Binding Name}" VerticalAlignment="Center" Margin="25, 0, 0, 0" 
+                                                   FontSize="26" FontWeight="Normal"/>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </GridView.ItemTemplate>
+                                <GridView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <VariableSizedWrapGrid/>
+                                    </ItemsPanelTemplate>
+                                </GridView.ItemsPanel>
+                            </GridView>
+                        </DataTemplate>
+                    </HubSection>
+
+                    <HubSection Header="Категории">
+                        <DataTemplate>
+                            <GridView ItemsSource="{Binding ElementName=root, Path=DataContext.CategoryCollection}" SelectionMode="None" IsItemClickEnabled="True" ItemClick="OnItemCategoryClick">
+                                <GridView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Width="220" Height="220" Background="#B25B5B5B">
+                                            <Grid>
+                                                <Image Grid.Row="0" Source="{Binding MediaImage, Converter={StaticResource MediaImageConverter}, ConverterParameter=500}"/>
+                                                <Border Background="#B2000000" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+                                                    <TextBlock Grid.Row="1" Text="{Binding Name}" FontSize="16.555" FontWeight="Normal" 
+                                                               TextWrapping="Wrap" TextTrimming="WordEllipsis" Margin="0, 10, 0, 15"
+                                                               VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                                </Border>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </GridView.ItemTemplate>
+                                <GridView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <VariableSizedWrapGrid MaximumRowsOrColumns="4"/>
+                                    </ItemsPanelTemplate>
+                                </GridView.ItemsPanel>
+                            </GridView>
+                        </DataTemplate>
+                    </HubSection>
+                </Hub>
+            </SemanticZoom.ZoomedInView>
+            <SemanticZoom.ZoomedOutView>
+                <GridView ItemsSource="{Binding Source={StaticResource zoomOutHubSource}}" Margin="0, 140, 0, 0" SelectionMode="None" IsItemClickEnabled="True">
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Background="#FFB27D1D" Width="280" Height="160">
+                                <TextBlock Text="{Binding}" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource SubheaderTextBlockStyle}"/>
+                            </Border>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VariableSizedWrapGrid Margin="60, 0, 30, 30"/>
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+                </GridView>
+            </SemanticZoom.ZoomedOutView>
+        </SemanticZoom>
+    </Grid>
+    
+    <Page.TopAppBar>
+        <AppBar>
+            <Grid>
+                <control:AppBarMenuControl/>
+            </Grid>
+        </AppBar>
+    </Page.TopAppBar>
+    
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Label="Корзина" Command="{Binding BasketCommand}">
+                    <AppBarButton.Icon>
+                        <BitmapIcon UriSource="ms-appx:///Images/appbar.cart.png"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+
+                <AppBarButton Label="Обновить" Icon="Refresh" Command="{Binding RefreshCommand}"/>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>

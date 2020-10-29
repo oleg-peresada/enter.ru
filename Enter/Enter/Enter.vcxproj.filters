@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Активы">
+      <UniqueIdentifier>a5f0314d-b6c6-43d4-a987-96889696afab</UniqueIdentifier>
+    </Filter>
+    <Image Include="Assets\Logo.scale-100.png">
+      <Filter>Активы</Filter>
+    </Image>
+    <Image Include="Assets\SmallLogo.scale-100.png">
+      <Filter>Активы</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.scale-100.png">
+      <Filter>Активы</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-100.png">
+      <Filter>Активы</Filter>
+    </Image>
+    <Filter Include="View">
+      <UniqueIdentifier>{941498fe-8061-4455-8fba-07b390fd211a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewModels">
+      <UniqueIdentifier>{d3aed87a-bf14-4959-b334-f81b9861778d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Converters">
+      <UniqueIdentifier>{5194e0c2-66a3-4bc9-a459-24470f77aa4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataModel">
+      <UniqueIdentifier>{36362714-e131-4f00-98bf-24f67e94e0d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{3d3a7152-dc92-4d9a-a63d-4c0d79b3e50b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Strings">
+      <UniqueIdentifier>{dabb037d-59d9-4181-bc78-dbf62c0a3cbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Strings\ru-RU">
+      <UniqueIdentifier>{bee1e846-8f20-42a2-8c25-a9ffd4d1fec0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Images">
+      <UniqueIdentifier>{54634cd6-83d0-4d66-ada4-637569058c40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Template">
+      <UniqueIdentifier>{862215d9-2f7a-45e6-8e0e-ce1697d84049}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View\Settings">
+      <UniqueIdentifier>{32520306-8e28-41c9-a2e5-27c595e32663}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataModel\Storage">
+      <UniqueIdentifier>{9df932aa-42f1-4842-a884-acde5f50b1a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Controls">
+      <UniqueIdentifier>{789488ae-38a5-479f-8afa-7dc9d410215b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Themes">
+      <UniqueIdentifier>{577ed339-a8aa-44ec-85b0-6416a9056ebb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Controls\UI">
+      <UniqueIdentifier>{d3558382-71cd-479a-b94c-61a541c2a456}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="App.xaml.cpp" />
+    <ClCompile Include="MainPage.xaml.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="RelayCommand.cpp" />
+    <ClCompile Include="SuspensionManager.cpp" />
+    <ClCompile Include="LoadStateEventArgs.cpp" />
+    <ClCompile Include="ViewModels\MainViewModels.cpp">
+      <Filter>ViewModels</Filter>
+    </ClCompile>
+    <ClCompile Include="DataModel\HubDataModel.cpp">
+      <Filter>DataModel</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewModels\AboutShopViewModels.cpp">
+      <Filter>ViewModels</Filter>
+    </ClCompile>
+    <ClCompile Include="View\AboutShopView.xaml.cpp" />
+    <ClCompile Include="Converters\MediaImageConverter.cpp">
+      <Filter>Converters</Filter>
+    </ClCompile>
+    <ClCompile Include="View\AccountView.xaml.cpp" />
+    <ClCompile Include="Converters\TextSourceConvert.cpp">
+      <Filter>Converters</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewModels\CategoryTreeViewModels.cpp">
+      <Filter>ViewModels</Filter>
+    </ClCompile>
+    <ClCompile Include="View\CategoryTreeView.xaml.cpp" />
+    <ClCompile Include="DataModel\GroupCategorySource.cpp">
+      <Filter>DataModel</Filter>
+    </ClCompile>
+    <ClCompile Include="Template\VariableGridView.cpp">
+      <Filter>Template</Filter>
+    </ClCompile>
+    <ClCompile Include="Template\CategoryTemplateSelector.cpp">
+      <Filter>Template</Filter>
+    </ClCompile>
+    <ClCompile Include="View\BasketView.xaml.cpp" />
+    <ClCompile Include="View\ProductExtensionsView.xaml.cpp" />
+    <ClCompile Include="View\ProductView.xaml.cpp" />
+    <ClCompile Include="ViewModels\ProductViewModels.cpp">
+      <Filter>ViewModels</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewModels\BasketViewModels.cpp">
+      <Filter>ViewModels</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewModels\ProductExtensionsViewModels.cpp">
+      <Filter>ViewModels</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewModels\ProductExtensionsPhotoViewModels.cpp">
+      <Filter>ViewModels</Filter>
+    </ClCompile>
+    <ClCompile Include="View\ProductExtensionsPhotoView.xaml.cpp" />
+    <ClCompile Include="Converters\ProductValueConverter.cpp">
+      <Filter>Converters</Filter>
+    </ClCompile>
+    <ClCompile Include="Converters\VisibilityNullValueConverter.cpp">
+      <Filter>Converters</Filter>
+    </ClCompile>
+    <ClCompile Include="Converters\BuyableConverter.cpp">
+      <Filter>Converters</Filter>
+    </ClCompile>
+    <ClCompile Include="DataModel\BasketProductSerialize.cpp">
+      <Filter>DataModel</Filter>
+    </ClCompile>
+    <ClCompile Include="View\Settings\AccountNewFlyout.xaml.cpp" />
+    <ClCompile Include="View\Settings\AutorizationFlyout.xaml.cpp" />
+    <ClCompile Include="DataModel\Storage\AutorizationStorage.cpp">
+      <Filter>DataModel\Storage</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewModels\AccountViewModels.cpp">
+      <Filter>ViewModels</Filter>
+    </ClCompile>
+    <ClCompile Include="Helpers.cpp" />
+    <ClCompile Include="Controls\CitiesMenuControl.xaml.cpp" />
+    <ClCompile Include="Controls\ShopMenuControl.xaml.cpp" />
+    <ClCompile Include="DataModel\IncrementLoadingBase.cpp">
+      <Filter>DataModel</Filter>
+    </ClCompile>
+    <ClCompile Include="Controls\AppBarMenuControl.xaml.cpp" />
+    <ClCompile Include="DataModel\IncrementFilterLoading.cpp">
+      <Filter>DataModel</Filter>
+    </ClCompile>
+    <ClCompile Include="View\OrderView.xaml.cpp" />
+    <ClCompile Include="ViewModels\OrderViewModels.cpp">
+      <Filter>ViewModels</Filter>
+    </ClCompile>
+    <ClCompile Include="Converters\PriceConverter.cpp">
+      <Filter>Converters</Filter>
+    </ClCompile>
+    <ClCompile Include="Controls\ImageShopControl.xaml.cpp" />
+    <ClCompile Include="Controls\PickShopControl.xaml.cpp" />
+    <ClCompile Include="Controls\OrderCompletedControl.xaml.cpp" />
+    <ClCompile Include="Controls\ChangedPasswordControl.xaml.cpp" />
+    <ClCompile Include="Controls\PersonalDataChangedControl.xaml.cpp" />
+    <ClCompile Include="ViewModelsBase.cpp" />
+    <ClCompile Include="ViewModels\SearchViewModels.cpp">
+      <Filter>ViewModels</Filter>
+    </ClCompile>
+    <ClCompile Include="View\SearchView.xaml.cpp" />
+    <ClCompile Include="Controls\UI\SliderRange.cpp">
+      <Filter>Controls\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="View\SplashFilterView.xaml.cpp" />
+    <ClCompile Include="ViewModels\SplashFilterViewModels.cpp">
+      <Filter>ViewModels</Filter>
+    </ClCompile>
+    <ClCompile Include="View\SplashScreenView.xaml.cpp" />
+    <ClCompile Include="Template\ToastNotificationCore.cpp">
+      <Filter>Template</Filter>
+    </ClCompile>
+    <ClCompile Include="Converters\TrackerStatusConverter.cpp">
+      <Filter>Converters</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewModels\TrackerExtensionsViewModels.cpp">
+      <Filter>ViewModels</Filter>
+    </ClCompile>
+    <ClCompile Include="View\TrackerExtensionsView.xaml.cpp" />
+    <ClCompile Include="ViewModels\TrackerViewModels.cpp">
+      <Filter>ViewModels</Filter>
+    </ClCompile>
+    <ClCompile Include="View\TrackerView.xaml.cpp" />
+    <ClCompile Include="View\AccessoriesView.xaml.cpp" />
+    <ClCompile Include="ViewModels\AccessoriesViewModels.cpp">
+      <Filter>ViewModels</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="App.xaml.h" />
+    <ClInclude Include="MainPage.xaml.h" />
+    <ClInclude Include="RelayCommand.h" />
+    <ClInclude Include="SuspensionManager.h" />
+    <ClInclude Include="LoadStateEventArgs.h" />
+    <ClInclude Include="ViewModelsBase.h" />
+    <ClInclude Include="ViewModels\MainViewModels.h">
+      <Filter>ViewModels</Filter>
+    </ClInclude>
+    <ClInclude Include="DataModel\HubDataModel.h">
+      <Filter>DataModel</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewModels\AboutShopViewModels.h">
+      <Filter>ViewModels</Filter>
+    </ClInclude>
+    <ClInclude Include="View\AboutShopView.xaml.h" />
+    <ClInclude Include="Converters\MediaImageConverter.h">
+      <Filter>Converters</Filter>
+    </ClInclude>
+    <ClInclude Include="View\AccountView.xaml.h" />
+    <ClInclude Include="Converters\TextSourceConvert.h">
+      <Filter>Converters</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewModels\CategoryTreeViewModels.h">
+      <Filter>ViewModels</Filter>
+    </ClInclude>
+    <ClInclude Include="View\CategoryTreeView.xaml.h" />
+    <ClInclude Include="DataModel\GroupCategorySource.h">
+      <Filter>DataModel</Filter>
+    </ClInclude>
+    <ClInclude Include="Template\VariableGridView.h">
+      <Filter>Template</Filter>
+    </ClInclude>
+    <ClInclude Include="Template\CategoryTemplateSelector.h">
+      <Filter>Template</Filter>
+    </ClInclude>
+    <ClInclude Include="View\BasketView.xaml.h" />
+    <ClInclude Include="View\ProductExtensionsView.xaml.h" />
+    <ClInclude Include="View\ProductView.xaml.h" />
+    <ClInclude Include="ViewModels\ProductViewModels.h">
+      <Filter>ViewModels</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewModels\BasketViewModels.h">
+      <Filter>ViewModels</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewModels\ProductExtensionsViewModels.h">
+      <Filter>ViewModels</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewModels\ProductExtensionsPhotoViewModels.h">
+      <Filter>ViewModels</Filter>
+    </ClInclude>
+    <ClInclude Include="View\ProductExtensionsPhotoView.xaml.h" />
+    <ClInclude Include="Converters\ProductValueConverter.h">
+      <Filter>Converters</Filter>
+    </ClInclude>
+    <ClInclude Include="Converters\VisibilityNullValueConverter.h">
+      <Filter>Converters</Filter>
+    </ClInclude>
+    <ClInclude Include="Converters\BuyableConverter.h">
+      <Filter>Converters</Filter>
+    </ClInclude>
+    <ClInclude Include="DataModel\BasketProductSerialize.h">
+      <Filter>DataModel</Filter>
+    </ClInclude>
+    <ClInclude Include="View\Settings\AccountNewFlyout.xaml.h" />
+    <ClInclude Include="View\Settings\AutorizationFlyout.xaml.h" />
+    <ClInclude Include="DataModel\Storage\AutorizationStorage.h">
+      <Filter>DataModel\Storage</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewModels\AccountViewModels.h">
+      <Filter>ViewModels</Filter>
+    </ClInclude>
+    <ClInclude Include="Helpers.h" />
+    <ClInclude Include="Controls\CitiesMenuControl.xaml.h" />
+    <ClInclude Include="Controls\ShopMenuControl.xaml.h" />
+    <ClInclude Include="DataModel\IncrementLoadingBase.h">
+      <Filter>DataModel</Filter>
+    </ClInclude>
+    <ClInclude Include="Controls\AppBarMenuControl.xaml.h" />
+    <ClInclude Include="DataModel\IncrementFilterLoading.h">
+      <Filter>DataModel</Filter>
+    </ClInclude>
+    <ClInclude Include="View\OrderView.xaml.h" />
+    <ClInclude Include="ViewModels\OrderViewModels.h">
+      <Filter>ViewModels</Filter>
+    </ClInclude>
+    <ClInclude Include="Converters\PriceConverter.h">
+      <Filter>Converters</Filter>
+    </ClInclude>
+    <ClInclude Include="Controls\ImageShopControl.xaml.h" />
+    <ClInclude Include="Controls\PickShopControl.xaml.h" />
+    <ClInclude Include="Controls\OrderCompletedControl.xaml.h" />
+    <ClInclude Include="Controls\ChangedPasswordControl.xaml.h" />
+    <ClInclude Include="Controls\PersonalDataChangedControl.xaml.h" />
+    <ClInclude Include="ViewModels\SearchViewModels.h">
+      <Filter>ViewModels</Filter>
+    </ClInclude>
+    <ClInclude Include="View\SearchView.xaml.h" />
+    <ClInclude Include="Controls\UI\SliderRange.h">
+      <Filter>Controls\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="View\SplashFilterView.xaml.h" />
+    <ClInclude Include="ViewModels\SplashFilterViewModels.h">
+      <Filter>ViewModels</Filter>
+    </ClInclude>
+    <ClInclude Include="View\SplashScreenView.xaml.h" />
+    <ClInclude Include="Template\ToastNotificationCore.h">
+      <Filter>Template</Filter>
+    </ClInclude>
+    <ClInclude Include="Converters\TrackerStatusConverter.h">
+      <Filter>Converters</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewModels\TrackerExtensionsViewModels.h">
+      <Filter>ViewModels</Filter>
+    </ClInclude>
+    <ClInclude Include="View\TrackerExtensionsView.xaml.h" />
+    <ClInclude Include="ViewModels\TrackerViewModels.h">
+      <Filter>ViewModels</Filter>
+    </ClInclude>
+    <ClInclude Include="View\TrackerView.xaml.h" />
+    <ClInclude Include="View\AccessoriesView.xaml.h" />
+    <ClInclude Include="ViewModels\AccessoriesViewModels.h">
+      <Filter>ViewModels</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Enter_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MainPage.xaml" />
+    <Page Include="View\AboutShopView.xaml">
+      <Filter>View</Filter>
+    </Page>
+    <Page Include="Common\StandartResource.xaml">
+      <Filter>Common</Filter>
+    </Page>
+    <Page Include="View\AccountView.xaml">
+      <Filter>View</Filter>
+    </Page>
+    <Page Include="View\CategoryTreeView.xaml">
+      <Filter>View</Filter>
+    </Page>
+    <Page Include="View\BasketView.xaml">
+      <Filter>View</Filter>
+    </Page>
+    <Page Include="View\ProductView.xaml">
+      <Filter>View</Filter>
+    </Page>
+    <Page Include="View\ProductExtensionsView.xaml">
+      <Filter>View</Filter>
+    </Page>
+    <Page Include="View\ProductExtensionsPhotoView.xaml">
+      <Filter>View</Filter>
+    </Page>
+    <Page Include="View\Settings\AutorizationFlyout.xaml">
+      <Filter>View\Settings</Filter>
+    </Page>
+    <Page Include="View\Settings\AccountNewFlyout.xaml">
+      <Filter>View\Settings</Filter>
+    </Page>
+    <Page Include="Controls\CitiesMenuControl.xaml">
+      <Filter>Controls</Filter>
+    </Page>
+    <Page Include="Controls\ShopMenuControl.xaml">
+      <Filter>Controls</Filter>
+    </Page>
+    <Page Include="Controls\AppBarMenuControl.xaml">
+      <Filter>Controls</Filter>
+    </Page>
+    <Page Include="View\OrderView.xaml">
+      <Filter>View</Filter>
+    </Page>
+    <Page Include="Controls\ImageShopControl.xaml">
+      <Filter>Controls</Filter>
+    </Page>
+    <Page Include="Controls\PickShopControl.xaml">
+      <Filter>Controls</Filter>
+    </Page>
+    <Page Include="Controls\OrderCompletedControl.xaml">
+      <Filter>Controls</Filter>
+    </Page>
+    <Page Include="Controls\ChangedPasswordControl.xaml">
+      <Filter>Controls</Filter>
+    </Page>
+    <Page Include="Controls\PersonalDataChangedControl.xaml">
+      <Filter>Controls</Filter>
+    </Page>
+    <Page Include="View\SearchView.xaml">
+      <Filter>View</Filter>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Filter>Themes</Filter>
+    </Page>
+    <Page Include="View\SplashFilterView.xaml">
+      <Filter>View</Filter>
+    </Page>
+    <Page Include="View\SplashScreenView.xaml">
+      <Filter>View</Filter>
+    </Page>
+    <Page Include="View\TrackerExtensionsView.xaml">
+      <Filter>View</Filter>
+    </Page>
+    <Page Include="View\TrackerView.xaml">
+      <Filter>View</Filter>
+    </Page>
+    <Page Include="View\AccessoriesView.xaml">
+      <Filter>View</Filter>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\ru-RU\Resources.resw">
+      <Filter>Strings\ru-RU</Filter>
+    </PRIResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Images\1.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\21.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\80.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\185.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\224.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\225.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\311.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\320.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\443.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\647.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\788.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\923.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\1438.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\1601.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\1889.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\2545.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\3172.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Images\appbar.cart.png">
+      <Filter>Images</Filter>
+    </Image>
+    <Image Include="Assets\Wide.scale-100.png">
+      <Filter>Активы</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-180.png">
+      <Filter>Активы</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.scale-180.png">
+      <Filter>Активы</Filter>
+    </Image>
+    <Image Include="Assets\MediumGray.png">
+      <Filter>Активы</Filter>
+    </Image>
+    <Image Include="Assets\EnterLogo.scale-100.png">
+      <Filter>Активы</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

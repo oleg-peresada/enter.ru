@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="Helpers.cpp" />
+    <ClCompile Include="HttpCommand.cpp" />
+    <ClCompile Include="Models\ShopListModels.cpp">
+      <Filter>Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\ShopListCommands.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\CategoryTreeCommands.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Models\CategoryTreeModels.cpp">
+      <Filter>Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\ProductListCommands.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\Filters\ProductListFilters.cpp">
+      <Filter>Commands\Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\ProductExtensionsListCommands.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Models\ProductExtensionsCardModels.cpp">
+      <Filter>Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\AutorizationCommands.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Models\UserCreateModels.cpp">
+      <Filter>Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\CitiesCommands.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Models\CitiesModels.cpp">
+      <Filter>Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\FilterProductCommands.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Models\FilterProductModels.cpp">
+      <Filter>Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\SearchCommands.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\AccountDataCommands.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Models\AccountDataModels.cpp">
+      <Filter>Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\OrderCommands.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\ReviewsCommands.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Models\ReviewModels.cpp">
+      <Filter>Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Models\TrackerCardModels.cpp">
+      <Filter>Models</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\ProductCommands.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Helpers.h" />
+    <ClInclude Include="HttpCommand.h" />
+    <ClInclude Include="Models\ShopListModels.h">
+      <Filter>Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\ShopListCommands.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\CategoryTreeCommands.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\CategoryTreeModels.h">
+      <Filter>Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\ProductListCommands.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\Filters\ProductListFilters.h">
+      <Filter>Commands\Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\ProductExtensionsListCommands.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\ProductExtensionsCardModels.h">
+      <Filter>Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\AutorizationCommands.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\UserCreateModels.h">
+      <Filter>Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\CitiesCommands.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\CitiesModels.h">
+      <Filter>Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\FilterProductCommands.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\FilterProductModels.h">
+      <Filter>Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\SearchCommands.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\AccountDataCommands.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\AccountDataModels.h">
+      <Filter>Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\OrderCommands.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\ReviewsCommands.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\ReviewModels.h">
+      <Filter>Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Models\TrackerCardModels.h">
+      <Filter>Models</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\ProductCommands.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Models">
+      <UniqueIdentifier>{3afcd880-0489-4d6e-8801-af32208b893d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands">
+      <UniqueIdentifier>{bb791b8c-7d00-4f3a-807f-3440c3d342a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commands\Filters">
+      <UniqueIdentifier>{5a5823b6-c115-47c5-9271-4d412ae40cba}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

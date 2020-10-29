@@ -1,0 +1,43 @@
+﻿<UserControl
+    x:Name="root"
+    x:Class="Enter.Controls.ImageShopControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Enter"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400" Loaded="OnLoaded">
+    
+    <UserControl.Resources>
+        <CollectionViewSource x:Name="imageView" Source="{Binding ElementName=root, Path=Tag.Images}"/>
+    </UserControl.Resources>
+    
+    <Border Background="Black">
+        <Grid>
+            <FlipView ItemsSource="{Binding Source={StaticResource imageView}}">
+                <FlipView.ItemTemplate>
+                    <DataTemplate>
+                        <Border>
+                            <Image Source="{Binding Source, Converter={StaticResource MediaImageConverter}, ConverterParameter=1500}"/>
+                        </Border>
+                    </DataTemplate>
+                </FlipView.ItemTemplate>
+            </FlipView>
+            
+            <Border Height="110" Background="#99000000" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                <Grid Margin="30, 15, 0, 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="{Binding ElementName=root, Path=Tag.Geo.Name, Converter={StaticResource TextSourceConvert}}" 
+                               FontSize="30" Foreground="White" FontWeight="Normal" TextTrimming="WordEllipsis"/>
+                    <TextBlock Grid.Row="1" Text="{Binding ElementName=root, Path=Tag.Name, Converter={StaticResource TextSourceConvert}}" 
+                               FontSize="24" Foreground="White" FontWeight="Light" TextTrimming="WordEllipsis"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</UserControl>
